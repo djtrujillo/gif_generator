@@ -1,7 +1,9 @@
 require 'net/http'
 require 'json'
 
-class Admin::GifsController < ApplicationController
+class Admin::GifsController < Admin::BaseController
+
+
   def new
   end
 
