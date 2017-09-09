@@ -16,4 +16,7 @@
 /node_modules
 /yarn-error.log
 
+# Ignore Api key
+/config/secrets.yml
+
 .byebug_history
