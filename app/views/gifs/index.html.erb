@@ -1,0 +1,6 @@
+<h1>All Gifs</h1>
+
+<% @gifs.each do |gif| %>
+  <%= image_tag gif.image_path %>
+  <%= link_to "View Gif", gif_path(gif) %>
+<% end %>

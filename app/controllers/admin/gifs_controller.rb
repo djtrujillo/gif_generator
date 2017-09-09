@@ -15,16 +15,9 @@ class Admin::GifsController < Admin::BaseController
     link = result["data"][0]["images"]["fixed_width"]["url"]
     @category = Category.create(name: params[:search_gif])
     @gif = Gif.create(image_path: link, category_id: @category.id)
-    redirect_to admin_gif_path(@gif)
+    redirect_to gif_path(@gif)
   end
 
-  def index
-    @gifs = Gif.all
-  end
 
-  def show
-    @gif = Gif.find(params[:id])
-
-  end
 
 end

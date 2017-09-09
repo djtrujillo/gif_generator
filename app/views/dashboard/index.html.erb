@@ -1,3 +1,7 @@
+<% if current_user %>
+  <h3>Welcome to GifGenerator, <%= current_user.username %></h3>
+<% end %>
+
 
 <% if current_user  %>
   <%= link_to "Logout", logout_path, method: :delete %>

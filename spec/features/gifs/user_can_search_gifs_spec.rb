@@ -11,7 +11,7 @@ feature "admin can find gifs" do
     click_on "Search"
 
     # save_and_open_page
-    expect(current_path).to eq("/admin/gifs/1")
+    expect(current_path).to eq("/gifs/1")
     expect(page).to have_content("Here is your gif")
     expect(Category.count).to eq(1)
     expect(Gif.count).to eq(1)

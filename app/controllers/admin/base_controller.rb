@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :show]
+  before_action :require_admin, only: [:new, :create]
 
   def require_admin
     render file: "/public/404" unless current_admin?
