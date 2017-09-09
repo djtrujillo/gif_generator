@@ -11,7 +11,7 @@ describe "guest becomes a user" do
 
       fill_in "user[username]", with: "dt123"
       fill_in "user[password]", with: "1234"
-      fill_in "user[password_confirmation]", with: "1234"
+      # fill_in "user[password_confirmation]", with: "1234"
 
 
       click_on "Create User"

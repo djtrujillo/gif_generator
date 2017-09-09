@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  resources :gifs, only: [:create, :index, :new, :show]
+  namespace :admin do
+    resources :gifs, only: [:create, :new, :show]
+  end
+
+  resources :gifs, only: [:index]
+  resources :categories, only: [:index]
+
 
 end
