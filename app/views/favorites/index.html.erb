@@ -2,4 +2,5 @@
 
 <% @favorites.each do |favorite| %>
 <%= image_tag favorite.gif.image_path %>
+<%= link_to "Unfavorite Gif ##{favorite.id}?", favorite_path(favorite), method: :delete %>
 <% end %>
