@@ -1,0 +1,8 @@
+<h1>Gifs for <%= @category.name %></h1>
+
+<%= @category.gifs.each do |gif| %>
+  <%= image_tag gif.image_path %>
+  <%= link_to "View Gif", gif_path(gif) %>
+<% end %>
+
+<%= link_to "Delete Category?", admin_category_path(@category), method: :delete %>

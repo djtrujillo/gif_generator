@@ -26,12 +26,17 @@ class Admin::GifsController < Admin::BaseController
       buffer = resp.body
       result = JSON.parse(buffer)
       link = result["data"][category_gif_count]["images"]["fixed_width"]["url"]
+
       @gif = Gif.create(image_path: link, category_id: @category.id)
       redirect_to gif_path(@gif)
     end
-
-
   end
+
+  def index
+    @gifs = Gif.all_by_category
+  end
+
+
 
 
 end

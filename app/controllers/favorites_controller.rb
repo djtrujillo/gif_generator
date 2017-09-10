@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.all_by_category
   end
 
   def destroy

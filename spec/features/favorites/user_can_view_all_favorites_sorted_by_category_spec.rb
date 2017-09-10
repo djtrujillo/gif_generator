@@ -1,15 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Favorite, type: :model do
-
-  context "validations" do
-    it { is_expected.to validate_presence_of(:user_id) }
-    it { is_expected.to validate_presence_of(:gif_id) }
-   end
-
-  context "class methods" do
-    it "sorts all by category" do
+describe "user can view all favorites sorted by category" do
+  scenario "user visits index and sees categories with gifs" do
       user = User.create(username: "Jacque", password: "123", role: 0)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       category1 = Category.create(name: "colorado")
       category2 = Category.create(name: "happy")
       gif1 = Gif.create(image_path: "https://media3.giphy.com/media/xT9DPn3MABvIwlubgk/200w.gif", category_id: category1.id)
@@ -21,8 +15,14 @@ RSpec.describe Favorite, type: :model do
       favorite3 = Favorite.create(gif_id: gif3.id, user_id: user.id)
       favorite4 = Favorite.create(gif_id: gif4.id, user_id: user.id)
 
+      visit '/favorites'
 
-      expect(Favorite.all_by_category).to eq({"colorado" => [favorite1, favorite2], "happy" => [favorite3, favorite4]})
+      expect(page).to have_content("colorado")
+      expect(page).to have_css("img[src=\"#{gif1.image_path}\"]")
+      expect(page).to have_css("img[src=\"#{gif2.image_path}\"]")
+
+      expect(page).to have_content("happy")
+      expect(page).to have_css("img[src=\"#{gif3.image_path}\"]")
+      expect(page).to have_css("img[src=\"#{gif4.image_path}\"]")
     end
   end
-end

@@ -1,6 +1,10 @@
 <h1>Favorite Gifs</h1>
 
-<% @favorites.each do |favorite| %>
-<%= image_tag favorite.gif.image_path %>
-<%= link_to "Unfavorite Gif ##{favorite.id}?", favorite_path(favorite), method: :delete %>
+
+<% @favorites.each do |category, favorite_array| %>
+  <h2><%= category %></h2>
+  <% favorite_array.each do |favorite|  %>
+    <%= image_tag favorite.gif.image_path %>
+    <%= link_to "Unfavorite Gif ##{favorite.id}?", favorite_path(favorite), method: :delete %>
+  <% end %>
 <% end %>

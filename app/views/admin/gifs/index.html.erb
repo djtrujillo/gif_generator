@@ -1,7 +1,7 @@
 <h1>All Gifs</h1>
 
 <% @gifs.each do |category, gifs_array| %>
-  <h2><%= category.name %></h2>
+  <h2><%= link_to category.name, admin_category_path(category) %></h2>
     <% gifs_array.each do |gif| %>
       <%= image_tag gif.image_path %>
       <%= link_to "View Gif", gif_path(gif) %>
