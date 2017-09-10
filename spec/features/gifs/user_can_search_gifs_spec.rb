@@ -7,7 +7,7 @@ feature "admin can find gifs" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit new_admin_gif_path
-    fill_in "Search for:", with: "colorado"
+    fill_in "Search for:", with: "happy"
     click_on "Search"
 
     # save_and_open_page

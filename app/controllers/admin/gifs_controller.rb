@@ -12,12 +12,14 @@ class Admin::GifsController < Admin::BaseController
     resp = Net::HTTP.get_response(URI.parse(url))
     buffer = resp.body
     result = JSON.parse(buffer)
+
     link = result["data"][0]["images"]["fixed_width"]["url"]
+
     @category = Category.create(name: params[:search_gif])
     @gif = Gif.create(image_path: link, category_id: @category.id)
     redirect_to gif_path(@gif)
-  end
 
+  end
 
 
 end

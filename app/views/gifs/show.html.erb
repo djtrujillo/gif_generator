@@ -1,3 +1,5 @@
 <h1>Here is your gif of <%= @gif.category.name %></h1>
 
 <%= image_tag @gif.image_path %>
+
+<%= link_to "Add to favorites?", gif_favorites_path(@gif), method: :post %>

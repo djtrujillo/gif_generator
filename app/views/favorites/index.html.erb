@@ -1,0 +1,5 @@
+<h1>Favorite Gifs</h1>
+
+<% @favorites.each do |favorite| %>
+<%= image_tag favorite.gif.image_path %>
+<% end %>

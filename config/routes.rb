@@ -15,7 +15,13 @@ Rails.application.routes.draw do
     resources :gifs, only: [:create, :new]
   end
 
-  resources :gifs, only: [:index, :show]
+  resources :gifs, only: [:index, :show] do
+    resources :favorites, only: [:create]
+  end
+
+  resources :favorites, only: [:index]
+
+
   resources :categories, only: [:index]
 
 
