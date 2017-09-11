@@ -4,4 +4,6 @@
 
 <h1>Here is your gif of <%= @gif.category.name %></h1>
 
-<%= image_tag @gif.image_path %>
+<%= image_tag @gif.image_path %></br>
+
+<%= link_to "Delete Gif?", admin_gif_path(@gif), method: :delete %>
