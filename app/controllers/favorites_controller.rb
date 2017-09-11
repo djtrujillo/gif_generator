@@ -4,21 +4,25 @@ class FavoritesController < ApplicationController
     @gif = Gif.find(params[:gif_id])
     @favorite = Favorite.new(favorite_params)
     @favorite.user_id = current_user.id
+
     if @favorite.save
-      redirect_to favorites_path
+      redirect_to user_favorites_path(current_user)
     else
       redirect_to gif_path(@gif)
     end
   end
 
   def index
-    @favorites = Favorite.all_by_category
+    # binding.pry
+    @favorites = Favorite.where(user_id: current_user.id).group_by {|t| t.gif.category.name}
+
   end
 
   def destroy
+
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    redirect_to favorites_path
+    redirect_to user_favorites_path(@favorite.user)
   end
 
   private

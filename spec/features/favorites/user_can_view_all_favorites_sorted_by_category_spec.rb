@@ -15,7 +15,7 @@ describe "user can view all favorites sorted by category" do
       favorite3 = Favorite.create(gif_id: gif3.id, user_id: user.id)
       favorite4 = Favorite.create(gif_id: gif4.id, user_id: user.id)
 
-      visit '/favorites'
+      visit "/users/#{user.id}/favorites"
 
       expect(page).to have_content("colorado")
       expect(page).to have_css("img[src=\"#{gif1.image_path}\"]")

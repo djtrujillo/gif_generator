@@ -7,6 +7,7 @@ class Favorite < ApplicationRecord
 
   def self.all_by_category
     joins(:gif).group_by {|t| t.gif.category.name}
-
   end
+
+
 end

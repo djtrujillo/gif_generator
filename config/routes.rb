@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :favorites, only: [:index, :destroy]
+  end
 
   namespace :admin do
     resources :gifs, only: [:create, :new, :destroy, :index, :show]
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create]
   end
 
-  resources :favorites, only: [:index, :destroy]
+
 
 
 

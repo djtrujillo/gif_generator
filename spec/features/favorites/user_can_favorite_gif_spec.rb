@@ -12,7 +12,7 @@ feature "User can favorite gif" do
 
     click_on "Add to favorites?"
 
-    expect(current_path).to eq(favorites_path)
+    expect(current_path).to eq("/users/#{user.id}/favorites")
     expect(page).to have_content("Favorite Gifs")
     expect(page).to have_css("img[src=\"#{gif.image_path}\"]")
   end
