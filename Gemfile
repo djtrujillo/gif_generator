@@ -31,6 +31,9 @@ gem 'faraday'
 gem 'bootstrap-sass'
 gem 'figaro'
 
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

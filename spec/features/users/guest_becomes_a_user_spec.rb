@@ -13,12 +13,10 @@ describe "guest becomes a user" do
       fill_in "user[password]", with: "1234"
       # fill_in "user[password_confirmation]", with: "1234"
 
-
+      save_and_open_page
       click_on "Create User"
 
-      expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Welcome to GifGenerator, dt123")
-      expect(page).to have_link("Logout")
+      expect(current_path).to eq(gifs_path)
     end
   end
 end

@@ -1,8 +1,12 @@
+<%= link_to "All Gifs", admin_gifs_path %>
+<%= link_to "Logout", logout_path, method: :delete%>
+
 <h1>Gifs for <%= @category.name %></h1>
 
-<%= @category.gifs.each do |gif| %>
+<% @category.gifs.each do |gif| %>
   <%= image_tag gif.image_path %>
   <%= link_to "View Gif", gif_path(gif) %>
 <% end %>
+</br>
 
-<%= link_to "Delete Category?", admin_category_path(@category), method: :delete %>
+<%= link_to "Delete Category?", admin_category_path(@category), method: :delete, class: "btn btn-danger" %>

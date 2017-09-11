@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#index'
-  get '/dashboard', to: 'dashboard#index'
-
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -12,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   namespace :admin do
-    resources :gifs, only: [:create, :new, :destroy, :index]
+    resources :gifs, only: [:create, :new, :destroy, :index, :show]
     resources :categories, only: [:create, :destroy, :show]
   end
 

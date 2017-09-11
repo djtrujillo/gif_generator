@@ -1,5 +1,10 @@
+<%= link_to "All Gifs", admin_gifs_path %>
+<%= link_to "Logout", logout_path, method: :delete %>
 
-  <%= form_tag("/admin/gifs", method: "post") do %>
+
+<h2>Generate New Gif!</h2>
+</br>
+<%= form_tag("/admin/gifs", method: "post") do %>
   <%= label_tag(:search_gif, "Search for:") %>
   <%= text_field_tag(:search_gif) %>
   <%= submit_tag("Search") %>

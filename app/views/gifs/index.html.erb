@@ -1,3 +1,7 @@
+<p>Welcome to Gif Generator, <%= current_user.username %></p>
+<%= link_to "Favorites", favorites_path %>
+<%= link_to "Logout", logout_path, method: :delete %>
+
 <h1>All Gifs</h1>
 
 <% @gifs.each do |category, gifs_array| %>

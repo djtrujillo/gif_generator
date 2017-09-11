@@ -17,6 +17,6 @@ feature "existing user is able to login" do
 
     click_on "Log In"
 
-    expect(page).to have_content("Welcome to GifGenerator, #{user.username}")
+    expect(current_path).to eq(gifs_path)
   end
 end
