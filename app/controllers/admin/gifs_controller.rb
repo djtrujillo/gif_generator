@@ -10,7 +10,7 @@ class Admin::GifsController < Admin::BaseController
   def create
     @category = Category.new(name: params[:search_gif])
     if @category.save
-      url = "http://api.giphy.com/v1/gifs/search?q=#{params[:search_gif]}&api_key=0bd9e7f2810e4acfad5b5992cdeeab52&limit=10"
+      url = "http://api.giphy.com/v1/gifs/search?q=#{params[:search_gif]}&api_key=YOUR-API-KEYlimit=10"
       resp = Net::HTTP.get_response(URI.parse(url))
       buffer = resp.body
       result = JSON.parse(buffer)
