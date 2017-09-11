@@ -16,7 +16,7 @@ class Admin::GifsController < Admin::BaseController
       result = JSON.parse(buffer)
       link = result["data"][0]["images"]["fixed_width"]["url"]
       @gif = Gif.create(image_path: link, category_id: @category.id)
-      redirect_to gif_path(@gif)
+      redirect_to admin_gif_path(@gif)
     else
       @category = Category.where(name: params[:search_gif])[0]
       category_gif_count = Gif.where(category_id: @category.id).count
@@ -28,7 +28,7 @@ class Admin::GifsController < Admin::BaseController
       link = result["data"][category_gif_count]["images"]["fixed_width"]["url"]
 
       @gif = Gif.create(image_path: link, category_id: @category.id)
-      redirect_to gif_path(@gif)
+      redirect_to admin_gif_path(@gif)
     end
   end
 
@@ -36,6 +36,9 @@ class Admin::GifsController < Admin::BaseController
     @gifs = Gif.all_by_category
   end
 
+  def show
+    @gif = Gif.find(params[:id])
+  end
 
 
 

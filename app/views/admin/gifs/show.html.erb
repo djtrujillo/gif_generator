@@ -1,0 +1,7 @@
+<%= link_to "Generate New Gif", new_admin_gif_path %>
+<%= link_to "All Gifs", admin_gifs_path %>
+<%= link_to "Logout", logout_path, method: :delete %>
+
+<h1>Here is your gif of <%= @gif.category.name %></h1>
+
+<%= image_tag @gif.image_path %>

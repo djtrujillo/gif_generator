@@ -9,6 +9,6 @@
   <h2><%= link_to category.name, admin_category_path(category) %></h2>
     <% gifs_array.each do |gif| %>
       <%= image_tag gif.image_path %>
-      <%= link_to "View Gif", gif_path(gif) %>
+      <%= link_to "View Gif", admin_gif_path(gif) %>
     <% end %>
 <% end %>

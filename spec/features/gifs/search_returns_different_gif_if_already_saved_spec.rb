@@ -12,7 +12,7 @@ feature "new gif saved with duplicate category search" do
     fill_in "Search for:", with: "happy"
     click_on "Search"
 
-    expect(current_path).to eq("/gifs/2")
+    expect(current_path).to eq("/admin/gifs/2")
     expect(page).to have_content("Here is your gif")
     expect(page).to_not have_css("img[src=\"#{gif.image_path}\"]")
 
